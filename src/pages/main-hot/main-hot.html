@@ -1,19 +1,29 @@
-<!--
-  Generated template for the MainHotPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>mainHot</ion-title>
-  </ion-navbar>
-
+  <headers>
+    <div class="tabs">
+      <div class="item item-active">推荐</div>
+      <div class="item">关注</div>
+    </div>
+  </headers>
 </ion-header>
 
-
 <ion-content padding>
-  <button ion-button full (click)="modalModalTab()">Show ModalTabs</button>
+  <div class="search" (click)="searchs()">平台内搜索</div>
+  <ion-slides class="focus" pager loop="false" autoplay="3000">
+    <ion-slide>
+      <img [src]="daily.custom_banner"/>
+    </ion-slide>
+  </ion-slides>
 
+  <items [item]="i" *ngFor="let i of thread">
+    <!--社区信息-->
+    <div class="setInfo" (click)="goToCommity()">
+      <img [src]="i.avatar" class="left" alt="">
+      <div class="right">
+        <div class="name">{{i.community_name}}</div>
+        <span><span style="color: #333333"
+                    class="author">{{i.author}}</span>{{i.dateline}}发表</span><span>{{i.views}}阅读</span>
+      </div>
+    </div>
+  </items>
 </ion-content>

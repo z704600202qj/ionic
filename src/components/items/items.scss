@@ -1,0 +1,15 @@
+items {
+  .videos {
+    width: 100%;
+    height: 300px;
+  }
+  .img-warp {
+    display: table;
+    width: 100%;
+    //height: 300px;
+
+    img {
+     display: table-cell;
+    }
+  }
+}

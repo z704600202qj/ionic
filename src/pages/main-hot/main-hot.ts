@@ -1,30 +1,38 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the MainHotPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Component} from '@angular/core';
+import {IonicPage, NavController} from 'ionic-angular';
+// import {SearchPage} from "../search/search";
+import {HttpServicesProvider} from "../../providers/http-services/http-services";
 
 @IonicPage()
 @Component({
   selector: 'page-main-hot',
-  templateUrl: 'main-hot.html',
+  templateUrl: 'main-hot.html'
 })
 export class MainHotPage {
+  public listInfo: any = {};
+  public daily: object = {};
+  public thread: Array<any> = []
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public http: HttpServicesProvider) {
+    this.getList()
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MainHotPage');
+  getList() {
+    this.http.get('/front/recommend', '', res => {
+      this.thread = res.data
+      console.log(res.data);
+    })
   }
 
-  modalModalTab() {
+  searchs() {
+    // this.navCtrl.push(SearchPage)
+  }
+
+  goToCommity() {
     console.log(2222);
     this.navCtrl.push('SubTabsPage')
   }
+
 
 }

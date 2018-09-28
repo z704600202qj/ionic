@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
-import {SubHomePage} from "../sub-home/sub-home";
 
 /**
  * Generated class for the SubTabsPage page.
