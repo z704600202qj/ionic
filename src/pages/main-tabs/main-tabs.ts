@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
 
-
 @IonicPage()
 @Component({
   templateUrl: 'main-tabs.html',
@@ -9,9 +8,11 @@ import {IonicPage, NavController} from 'ionic-angular';
 })
 export class MainTabsPage {
 
-  tab1Root = 'HomePage';
-  tab2Root = 'AboutPage';
-  tab3Root = 'ContactPage'
+  mainTab1Root = 'MainHotPage';
+  mainTab2Root = 'MainCommunityPage';
+  mainTab3Root = 'MainFastPage';
+  mainTab4Root = 'MainFunPage';
+  mainTab5Root = 'MainMyPage';
 
   constructor(public navCtrl: NavController) {
   }
