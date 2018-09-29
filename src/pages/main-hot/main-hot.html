@@ -7,23 +7,9 @@
   </headers>
 </ion-header>
 
-<ion-content padding>
-  <div class="search" (click)="searchs()">平台内搜索</div>
-  <ion-slides class="focus" pager loop="false" autoplay="3000">
-    <ion-slide>
-      <img [src]="daily.custom_banner"/>
-    </ion-slide>
-  </ion-slides>
-
+<ion-content >
   <items [item]="i" *ngFor="let i of thread">
     <!--社区信息-->
-    <div class="setInfo" (click)="goToCommity()">
-      <img [src]="i.avatar" class="left" alt="">
-      <div class="right">
-        <div class="name">{{i.community_name}}</div>
-        <span><span style="color: #333333"
-                    class="author">{{i.author}}</span>{{i.dateline}}发表</span><span>{{i.views}}阅读</span>
-      </div>
-    </div>
+    <item-header [i]="i"></item-header>
   </items>
 </ion-content>
