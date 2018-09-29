@@ -89,4 +89,5 @@
         <variable name="MAX_STORE" value="2" />
     </plugin>
     <engine name="android" spec="7.1.1" />
+    <plugin name="com.moust.cordova.videoplayer" spec="https://github.com/moust/cordova-plugin-videoplayer" />
 </widget>

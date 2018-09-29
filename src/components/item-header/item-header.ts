@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {NavController} from "ionic-angular";
 
 /**
  * Generated class for the ItemHeaderComponent component.
@@ -17,9 +18,12 @@ export class ItemHeaderComponent {
   @Input()
   i: object;
 
-  constructor() {
+  constructor(public navCtrl:NavController) {
     console.log('Hello ItemHeaderComponent Component');
     this.text = 'Hello World';
+  }
+  goToCommity() {
+    this.navCtrl.push('SubTabsPage')
   }
 
 }

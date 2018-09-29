@@ -3,7 +3,7 @@
     <div *ngSwitchCase="1">
       <ng-content></ng-content>
       <div  class="summary" (click)="look_desc(item)" [innerHTML]="item.summary"></div>
-      <video class="videos" [src]="item.video" *ngIf="item.video"></video>
+      <img  class="videos" [src]="item.videoThumb" *ngIf="item.video"  (click)="playVideo(item.video)">
       <div *ngIf="!item.video" class="img-warp">
 
         <div class="img" *ngIf="item.pics_arr.length==1">

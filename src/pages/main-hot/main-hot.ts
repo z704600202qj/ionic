@@ -29,10 +29,6 @@ export class MainHotPage {
     // this.navCtrl.push(SearchPage)
   }
 
-  goToCommity() {
-    console.log(2222);
-    this.navCtrl.push('SubTabsPage')
-  }
 
 
 }
