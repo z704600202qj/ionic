@@ -7,9 +7,29 @@
   </headers>
 </ion-header>
 
-<ion-content >
-  <items [item]="i" *ngFor="let i of thread">
+<ion-content>
+  <!--上拉刷新-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="下拉刷新"
+      refreshingSpinner="circles"
+      refreshingText="刷新...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!--列表数据-->
+  <items [item]="i" *ngFor="let i of list">
     <!--社区信息-->
-    <item-header [i]="i"></item-header>
+    <item-header [i]="i" class="title"></item-header>
+    <div class="videos">
+      <good-video [src]="i.video" [poster]="i.videoThumb"></good-video>
+    </div>
   </items>
+  <!--下滑的时候，加载数据-->
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="加载中...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

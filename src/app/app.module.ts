@@ -6,12 +6,10 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {Pro} from '@ionic/pro';
 
 import {MyApp} from './app.component';
-// import {ComponentsModule} from "../components/components.module";
 //网络请求
 import {HttpClient} from '@angular/common/http';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpServicesProvider} from '../providers/http-services/http-services';
-import { VideoPlayer } from '@ionic-native/video-player';
 Pro.init('454cff30', {
   appVersion: '0.0.1'
 })
@@ -58,7 +56,6 @@ export class MyErrorHandler implements ErrorHandler {
     SplashScreen,
     IonicErrorHandler,
     HttpClient,
-    VideoPlayer,
     {provide: ErrorHandler, useClass: MyErrorHandler},
     HttpServicesProvider,
   ]

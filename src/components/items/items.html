@@ -1,35 +1,40 @@
 <!-- Generated template for the ItemsComponent component -->
-  <div class="list" [ngSwitch]="item.dataType">
-    <div *ngSwitchCase="1">
-      <ng-content></ng-content>
-      <div  class="summary" (click)="look_desc(item)" [innerHTML]="item.summary"></div>
-      <img  class="videos" [src]="item.videoThumb" *ngIf="item.video"  (click)="playVideo(item.video)">
-      <div *ngIf="!item.video" class="img-warp">
-
-        <div class="img" *ngIf="item.pics_arr.length==1">
-          <img class="one-img" [src]="item.pics_arr[0]"/>
-        </div>
-
-        <div class="img" *ngIf="item.pics_arr.length==2">
-          <div class="img_item two-img" *ngFor="let img of item.pics_arr" [ngStyle]="{'background-image':'url(' + img + ')'}"></div>
-        </div>
-        <div class="img" *ngIf="item.pics_arr.length>=3">
-          <div class="img_item more-img" *ngFor="let img of item.pics_arr" [ngStyle]="{'background-image':'url(' + img + ')'}"></div>
-        </div>
-      </div>
+<div class="list" [ngSwitch]="item.dataType">
+  <div *ngSwitchCase="1">
+    <ng-content select=".title"></ng-content>
+    <div class="summary" (click)="look_desc(item)" [innerHTML]="item.summary"></div>
+    <div *ngIf="item.video">
+      <ng-content select=".videos"></ng-content>
     </div>
-    <div *ngSwitchCase="2">
-      <div class="advertising" >
-        <div class="item" >
-          <div class="title">{{item.title}}</div>
-          <div class="desc">{{item.description}}</div>
-          <div class="edImg" [ngStyle]="{'background-image':'url(' + item.image + ')'}"></div>
-          <!--<div class="colse">-->
-            <!--<div class="blText">{{item.blText}}</div>-->
-            <!--<div class="brText">{{item.brText}}</div>-->
-            <!--&lt;!&ndash;<img src="/static/img/close.png" @click="close" class="close" alt="">&ndash;&gt;-->
-          <!--</div>-->
-        </div>
+    <!--<img  class="videos" [src]=""   (click)="playVideo(item.video)">-->
+    <div *ngIf="!item.video" class="img-warp">
+
+      <div class="img" *ngIf="item.pics_arr.length==1">
+        <img class="one-img" [src]="item.pics_arr[0]"/>
+      </div>
+
+      <div class="img" *ngIf="item.pics_arr.length==2">
+        <div class="img_item two-img" *ngFor="let img of item.pics_arr"
+             [ngStyle]="{'background-image':'url(' + img + ')'}"></div>
+      </div>
+      <div class="img" *ngIf="item.pics_arr.length>=3">
+        <div class="img_item more-img" *ngFor="let img of item.pics_arr"
+             [ngStyle]="{'background-image':'url(' + img + ')'}"></div>
       </div>
     </div>
   </div>
+  <div *ngSwitchCase="2">
+    <div class="advertising">
+      <div class="item">
+        <div class="title">{{item.title}}</div>
+        <div class="desc">{{item.description}}</div>
+        <div class="edImg" [ngStyle]="{'background-image':'url(' + item.image + ')'}"></div>
+        <!--<div class="colse">-->
+        <!--<div class="blText">{{item.blText}}</div>-->
+        <!--<div class="brText">{{item.brText}}</div>-->
+        <!--&lt;!&ndash;<img src="/static/img/close.png" @click="close" class="close" alt="">&ndash;&gt;-->
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+</div>
